@@ -9,12 +9,9 @@ export function loading() {
 
 export async function fetchGames(dispatch, getState) {
   try {
-    const response = await axios.get(`${apiUrl}/artworks`);
+    const response = await axios.get(`${apiUrl}/games`);
 
-    dispatch({
-      type: "artworks/set_artworks",
-      payload: response.data,
-    });
+    dispatch({ type: "games/set_games", payload: response.data });
   } catch (error) {
     console.log(error.message);
   }
