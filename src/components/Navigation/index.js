@@ -7,9 +7,9 @@ import { selectToken } from "../../store/user/selectors";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import "./styles.css";
-import SocialMediaIcons from "../socialMediaIcons";
-import DropDownMenu from "../dropDownMenu";
-import SearchBar from "../searchBar";
+import SocialMediaIcons from "../SocialMediaIcons";
+import DropDownMenu from "../DropDownMenu";
+import SearchBar from "../SearchBar";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
