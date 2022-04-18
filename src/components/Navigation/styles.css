@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Rubik+Puddles&family=Snowburst+One&display=swap");
+
+.nav-bar-container {
+  display: flex;
+  border-bottom: 5px solid;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tittle {
+  align-items: center;
+}
+
+.nav-tittle {
+  font-family: "Snowburst One";
+  align-self: center;
+}
+
+.right-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.left-navbar {
+  display: flex;
+}

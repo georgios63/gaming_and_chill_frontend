@@ -4,9 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
-import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import "./styles.css";
+import SocialMediaIcons from "../socialMediaIcons";
+import DropDownMenu from "../dropDownMenu";
+import SearchBar from "../searchBar";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
@@ -14,18 +17,36 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand as={NavLink} to="/">
-        YOUR PROJECT NAME
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/" linkText="Home" />
-          <NavbarItem path="/other" linkText="Other" />
-          {loginLogoutControls}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <>
+      <Navbar className="nav-bar-container" bg="black" variant="dark">
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="nav-bar">
+            <div className="left-navbar">
+              <DropDownMenu />
+              <SearchBar />
+            </div>
+
+            <div className="tittle">
+              <Navbar.Brand className="nav-tittle" as={NavLink} to="/">
+                Gaming and chill
+              </Navbar.Brand>
+            </div>
+
+            <div className="right-navbar">
+              {loginLogoutControls}
+              <span
+                style={{
+                  borderRight: "1px dashed #fff",
+                  marginLeft: "10px",
+                  marginRight: "20px",
+                }}
+              />
+
+              <SocialMediaIcons />
+            </div>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </>
   );
 }
