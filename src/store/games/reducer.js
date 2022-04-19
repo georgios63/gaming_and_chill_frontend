@@ -2,6 +2,8 @@ const initialState = {
   loading: false,
   games: [],
   sortedByReleaseDate: [],
+  categoryByPc: [],
+  categoryByBrowser: [],
 };
 
 export default function games(state = initialState, action) {
@@ -14,11 +16,27 @@ export default function games(state = initialState, action) {
       };
     }
 
-    case "sortedByReleaseDate/setSortedByReleaseDate": {
+    case "sortedByReleaseDate/set_sortedByReleaseDate": {
       return {
         ...state,
         loading: false,
         sortedByReleaseDate: action.payload,
+      };
+    }
+
+    case "categoryByPc/set_categoryByPc": {
+      return {
+        ...state,
+        loading: false,
+        categoryByPc: action.payload,
+      };
+    }
+
+    case "categoryByBrowser/set_categoryByBrowser": {
+      return {
+        ...state,
+        loading: false,
+        categoryByBrowser: action.payload,
       };
     }
 

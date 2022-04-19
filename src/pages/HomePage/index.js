@@ -1,4 +1,6 @@
 import { Container, Navbar } from "react-bootstrap";
+import CategoryByBrowser from "../../components/CategoryByBrowser";
+import CategoryByPc from "../../components/CategoryByPc";
 import CategoryByReleaseDate from "../../components/CategoryByReleaseDate";
 import Games from "../../components/Games";
 import Preview from "../../components/Preview";
@@ -14,12 +16,14 @@ const HomePage = () => {
       </Container>
       <Preview />
       <div className="home-page-container">
-        <div>Welcome from random details</div>
+        {/* <div>Welcome from random details</div> */}
         <div className="game-containers">
           <Games />
           <CategoryByReleaseDate />
+          <CategoryByBrowser />
+          <CategoryByPc />
         </div>
-        <div>Hello from random news</div>
+        {/* <div>Hello from random news</div> */}
       </div>
     </div>
   );

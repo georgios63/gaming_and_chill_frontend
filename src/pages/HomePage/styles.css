@@ -12,9 +12,8 @@
 }
 
 .game-containers {
-  background-color: #0f1116;
-  /* min-height: 1000px; */
-  width: 50%;
+  /* background-color: #0f1116; */
+  width: 100%;
   height: 100%;
   border-radius: 8px;
 }

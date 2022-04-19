@@ -19,11 +19,36 @@ export async function fetchGames(dispatch, getState) {
 
 export async function fetchGamesSortedByReleaseDate(dispatch, getState) {
   try {
-    const response = await axios.get(`${apiUrl}/games/release-date`);
+    const response = await axios.get(`${apiUrl}/games/sort-by/release-date`);
 
-    console.log(response.data);
     dispatch({
-      type: "sortedByReleaseDate/setSortedByReleaseDate",
+      type: "sortedByReleaseDate/set_sortedByReleaseDate",
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function fetchGamesByCategoryPc(dispatch, getState) {
+  try {
+    const response = await axios.get(`${apiUrl}/games/category/pc`);
+
+    dispatch({
+      type: "categoryByPc/set_categoryByPc",
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function fetchGamesByCategoryBrowser(dispatch, getState) {
+  try {
+    const response = await axios.get(`${apiUrl}/games/category/browser`);
+
+    dispatch({
+      type: "categoryByBrowser/set_categoryByBrowser",
       payload: response.data,
     });
   } catch (error) {

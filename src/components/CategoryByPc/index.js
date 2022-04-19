@@ -1,32 +1,31 @@
-import "./styles.css";
 import React, { useEffect, useRef } from "react";
 import {
   gamesLoading,
-  allGamesSortedByReleaseDate,
+  allGamesByCategoryPc,
 } from "../../store/games/selectors";
-import { fetchGamesSortedByReleaseDate } from "../../store/games/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDownload } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
+import { fetchGamesByCategoryPc } from "../../store/games/actions";
 
-const CategoryByReleaseDate = () => {
+const CategoryByPc = () => {
   const target = useRef(null);
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
-  const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
+  const gamesByCategoryPc = useSelector(allGamesByCategoryPc);
 
   useEffect(() => {
-    dispatch(fetchGamesSortedByReleaseDate);
-  }, [fetchGamesSortedByReleaseDate]);
+    dispatch(fetchGamesByCategoryPc);
+  }, [fetchGamesByCategoryPc]);
 
   return (
     <div>
-      <h3>New Releases</h3>
+      <h3>Games by Platform: PC</h3>
       <div className="card-games">
         {!loading
-          ? sortedByReleaseDate.map((game) => (
+          ? gamesByCategoryPc.map((game) => (
               <div className="card-game" key={game.id}>
                 <img alt="" src={game.thumbnail} />
                 <div className="icon-container">
@@ -73,4 +72,4 @@ const CategoryByReleaseDate = () => {
   );
 };
 
-export default CategoryByReleaseDate;
+export default CategoryByPc;
