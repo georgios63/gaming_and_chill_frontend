@@ -5,7 +5,11 @@ import { allGames, gamesLoading } from "../../store/games/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { IconContext } from "react-icons";
 import { AiOutlineStar, AiOutlineDownload } from "react-icons/ai";
+import { IoIosAdd } from "react-icons/io";
+import { RiComputerLine } from "react-icons/ri";
 import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
+import CardButton from "../CardButton";
+import { Link } from "react-router-dom";
 
 const Games = () => {
   const [show, setShow] = useState(false);
@@ -14,12 +18,6 @@ const Games = () => {
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const games = useSelector(allGames);
-
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Add to your library
-    </Tooltip>
-  );
 
   useEffect(() => {
     dispatch(fetchGames);
@@ -33,33 +31,37 @@ const Games = () => {
               <div className="card-game" key={game.id}>
                 <img alt="" src={game.thumbnail} />
                 <div className="icon-container">
-                  <OverlayTrigger
-                    placement="bottom"
-                    delay={{ show: 250, hide: 100 }}
-                    overlay={renderTooltip}
-                  >
-                    <Button
-                      variant="secondary"
+                  <CardButton title="Add to library">
+                    <IoIosAdd
                       style={{
-                        alignSelf: "center",
-                        border: "1px solid black",
-                        borderRadius: "50px",
-                        margin: "15px",
-                        width: "50px",
-                        height: "50px",
+                        color: "white",
+                        margin: "2px",
+                        width: "30px",
+                        height: "30px",
                       }}
-                    >
-                      +
-                    </Button>
-                  </OverlayTrigger>
-                  <IconContext.Provider
-                    value={{ className: "card-icons", size: 30 }}
-                  >
-                    <a href={game.game_url}>
-                      <AiOutlineDownload />
-                    </a>
-                    <AiOutlineStar />
-                  </IconContext.Provider>
+                    />
+                  </CardButton>
+
+                  <CardButton title="Click to see a preview">
+                    <RiComputerLine
+                      style={{
+                        color: "white",
+                        margin: "2px",
+                        width: "30px",
+                        height: "30px",
+                      }}
+                    />
+                  </CardButton>
+
+                    <CardButton title="Click to go to the download page" input={game.game_url}>
+                      <AiOutlineDownload
+                        style={{
+                          color: "white",
+                          width: "30px",
+                          height: "30px",
+                        }}
+                      />
+                    </CardButton>
                 </div>
               </div>
             ))

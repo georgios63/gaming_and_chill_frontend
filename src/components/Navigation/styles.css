@@ -2,7 +2,7 @@
 
 .nav-bar-container {
   display: flex;
-  border-bottom: 5px solid;
+  border-bottom: 1px solid;
 }
 
 .nav-bar {
@@ -14,7 +14,6 @@
 }
 
 .tittle {
-  align-items: center;
 }
 
 .nav-tittle {

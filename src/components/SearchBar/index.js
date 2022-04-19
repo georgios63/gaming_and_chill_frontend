@@ -11,6 +11,7 @@ const SearchBar = () => {
           placeholder="Search"
           aria-label="Search"
           style={{
+            border: "1px solid rgba(185, 180, 180, 0.158)",
             borderRadius: "50px",
             backgroundColor: "black",
             color: "white",

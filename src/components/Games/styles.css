@@ -6,12 +6,9 @@
 .card-games {
   display: flex;
   margin: 10px;
-  border-radius: 50px;
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 20px;
-  /* background-color: rgba(185, 180, 180, 0.158); */
-  /* border: 2px solid black; */
 }
 
 .card-games::-webkit-scrollbar {
@@ -20,8 +17,7 @@
 
 .card-game {
   width: 100%;
-  padding: 10px;
-  margin-right: 10px;
+  margin-right: 25px;
   border-radius: 50px;
   border: 0px solid black;
 
@@ -30,12 +26,14 @@
 
 .card-game:hover {
   transform: scale(1.08);
+  box-shadow: 0px 10px 10px black;
   opacity: 1;
   border: 1px solid rgba(185, 180, 180, 0.158);
 }
 
 .card-game > img {
-  border-radius: 50px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
 }
 
 .icon-container {
