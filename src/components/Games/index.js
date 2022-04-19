@@ -15,9 +15,13 @@ const Games = () => {
 
   return (
     <div>
-      <div>
+      <div className="card-games">
         {!loading
-          ? games.map((game) => <img alt="" src={game.thumbnail} />)
+          ? games.map((game) => (
+              <div className="card-game" key={game.id}>
+                <img alt="" src={game.thumbnail} />
+              </div>
+            ))
           : "loading"}
       </div>
       <div>Hello from second category</div>
