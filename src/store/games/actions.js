@@ -16,3 +16,17 @@ export async function fetchGames(dispatch, getState) {
     console.log(error.message);
   }
 }
+
+export async function fetchGamesSortedByReleaseDate(dispatch, getState) {
+  try {
+    const response = await axios.get(`${apiUrl}/games/release-date`);
+
+    console.log(response.data);
+    dispatch({
+      type: "sortedByReleaseDate/setSortedByReleaseDate",
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}

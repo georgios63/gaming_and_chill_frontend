@@ -1,29 +1,35 @@
 import "./styles.css";
 import React, { useEffect, useRef, useState } from "react";
-import { fetchGames } from "../../store/games/actions";
-import { allGames, gamesLoading } from "../../store/games/selectors";
+import {
+  gamesLoading,
+  allGamesSortedByReleaseDate,
+  allGames,
+} from "../../store/games/selectors";
+import { fetchGamesSortedByReleaseDate } from "../../store/games/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDownload } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 
-const Games = () => {
+const CategoryByReleaseDate = () => {
   const target = useRef(null);
 
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
-  const games = useSelector(allGames);
+  const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
+
+  console.log(sortedByReleaseDate);
 
   useEffect(() => {
-    dispatch(fetchGames);
-  }, [fetchGames]);
+    dispatch(fetchGamesSortedByReleaseDate);
+  }, [fetchGamesSortedByReleaseDate]);
 
   return (
     <div>
       <div className="card-games">
         {!loading
-          ? games.map((game) => (
+          ? sortedByReleaseDate.map((game) => (
               <div className="card-game" key={game.id}>
                 <img alt="" src={game.thumbnail} />
                 <div className="icon-container">
@@ -71,4 +77,4 @@ const Games = () => {
   );
 };
 
-export default Games;
+export default CategoryByReleaseDate;

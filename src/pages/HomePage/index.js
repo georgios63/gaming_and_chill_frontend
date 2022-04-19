@@ -1,4 +1,5 @@
 import { Container, Navbar } from "react-bootstrap";
+import CategoryByReleaseDate from "../../components/CategoryByReleaseDate";
 import Games from "../../components/Games";
 import Preview from "../../components/Preview";
 import "./styles.css";
@@ -16,6 +17,7 @@ const HomePage = () => {
         <div>Welcome from random details</div>
         <div className="game-containers">
           <Games />
+          <CategoryByReleaseDate />
         </div>
         <div>Hello from random news</div>
       </div>

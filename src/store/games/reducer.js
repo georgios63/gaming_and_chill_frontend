@@ -1,6 +1,7 @@
 const initialState = {
   loading: false,
   games: [],
+  sortedByReleaseDate: [],
 };
 
 export default function games(state = initialState, action) {
@@ -10,6 +11,14 @@ export default function games(state = initialState, action) {
         ...state,
         loading: false,
         games: action.payload,
+      };
+    }
+
+    case "sortedByReleaseDate/setSortedByReleaseDate": {
+      return {
+        ...state,
+        loading: false,
+        sortedByReleaseDate: action.payload,
       };
     }
 
