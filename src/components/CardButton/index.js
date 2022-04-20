@@ -1,10 +1,6 @@
 import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 
-const CardButton = ({ children, title, input, id, clickHandler, ...props }) => {
-  // const handleClick = () => {
-  //   dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
-  // };
-
+const CardButton = ({ children, title, input, clickHandler, ...props }) => {
   return (
     <OverlayTrigger
       placement="bottom"

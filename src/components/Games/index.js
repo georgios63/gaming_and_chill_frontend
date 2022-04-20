@@ -7,11 +7,16 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
+import { previewd } from "../../store/preview/actions";
 
 const Games = () => {
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const games = useSelector(allGames);
+
+  const handleClick = (id) => {
+    dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
+  };
 
   useEffect(() => {
     dispatch(fetchGames);
@@ -38,7 +43,10 @@ const Games = () => {
                     />
                   </CardButton>
 
-                  <CardButton title="Click to see a preview" id={game.id}>
+                  <CardButton
+                    title="Click to see a preview"
+                    clickHandler={() => handleClick(game.id)}
+                  >
                     <RiComputerLine
                       style={{
                         color: "white",

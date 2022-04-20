@@ -10,11 +10,16 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
+import { previewd } from "../../store/preview/actions";
 
 const CategoryByReleaseDate = () => {
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
+
+  const handleClick = (id) => {
+    dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
+  };
 
   useEffect(() => {
     dispatch(fetchGamesSortedByReleaseDate);
@@ -41,7 +46,10 @@ const CategoryByReleaseDate = () => {
                     />
                   </CardButton>
 
-                  <CardButton title="Click to see a preview">
+                  <CardButton
+                    title="Click to see a preview"
+                    clickHandler={() => handleClick(game.id)}
+                  >
                     <RiComputerLine
                       style={{
                         color: "white",

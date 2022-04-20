@@ -9,11 +9,16 @@ import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 import { fetchGamesByCategoryBrowser } from "../../store/games/actions";
+import { previewd } from "../../store/preview/actions";
 
 const CategoryByBrowser = () => {
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const gamesByCategoryBrowser = useSelector(allGamesByCategoryBrowser);
+
+  const handleClick = (id) => {
+    dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
+  };
 
   useEffect(() => {
     dispatch(fetchGamesByCategoryBrowser);
@@ -42,7 +47,7 @@ const CategoryByBrowser = () => {
 
                   <CardButton
                     title="Click to see a preview"
-                    style={{ color: "red" }}
+                    clickHandler={() => handleClick(game.id)}
                   >
                     <RiComputerLine
                       style={{
