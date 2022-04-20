@@ -22,7 +22,6 @@ const HomePage = () => {
           <CategoryByBrowser />
           <CategoryByPc />
         </div>
-        {/* <div>Hello from random news</div> */}
       </div>
     </div>
   );
