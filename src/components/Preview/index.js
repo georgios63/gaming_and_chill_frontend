@@ -15,8 +15,16 @@ const Preview = () => {
 
   return (
     <div className="preview-container">
-      <video controls width="700" key={prev} autoPlay={true} loop={true}>
+      <video
+        controls
+        width="700"
+        key={prev}
+        autoPlay={true}
+        loop={true}
+        controlsList="nodownload"
+      >
         <source src={prev} type="video/webm" />
+        <source src={prev} type="video/mp4" />
       </video>
     </div>
   );
