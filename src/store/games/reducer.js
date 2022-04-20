@@ -4,6 +4,7 @@ const initialState = {
   sortedByReleaseDate: [],
   categoryByPc: [],
   categoryByBrowser: [],
+  filteredSearch: [],
 };
 
 export default function games(state = initialState, action) {
@@ -37,6 +38,14 @@ export default function games(state = initialState, action) {
         ...state,
         loading: false,
         categoryByBrowser: action.payload,
+      };
+    }
+
+    case "filteredBySearchBar/set_filteredBySearchBar": {
+      return {
+        ...state,
+        loading: false,
+        filteredSearch: action.payload,
       };
     }
 

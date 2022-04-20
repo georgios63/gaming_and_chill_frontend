@@ -1,27 +1,25 @@
-import { useState } from "react";
 import { Form, FormControl } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchGamesBySearchBar } from "../../store/games/actions";
 import { allGames } from "../../store/games/selectors";
 import "./styles.css";
 
 const SearchBar = ({ ...props }) => {
-  const [filteredData, setfilteredData] = useState([]);
+  const dispatch = useDispatch();
   const games = useSelector(allGames);
 
   const filterHandler = (event) => {
-    const searchGame = event.target.value;
     const newFilter = games.filter((value) => {
-      return value.title.toLowerCase().includes(searchGame.toLowerCase());
+      return value.title.toLowerCase().includes(event.toLowerCase());
     });
 
-    if (searchGame === "") {
-      setfilteredData([]);
+    if (event === "") {
+      dispatch(fetchGamesBySearchBar([]));
     } else {
-      setfilteredData(newFilter);
+      dispatch(fetchGamesBySearchBar(newFilter));
     }
   };
 
-  console.log(filteredData);
   return (
     <div>
       <Form className="search-bar-container">
@@ -29,7 +27,7 @@ const SearchBar = ({ ...props }) => {
           type="search"
           placeholder="Search"
           aria-label="Search"
-          onChange={filterHandler}
+          onChange={(event) => filterHandler(event.target.value)}
           style={{
             border: "1px solid rgba(185, 180, 180, 0.158)",
             borderRadius: "50px",

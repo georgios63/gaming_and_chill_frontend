@@ -55,3 +55,10 @@ export async function fetchGamesByCategoryBrowser(dispatch, getState) {
     console.log(error.message);
   }
 }
+
+export function fetchGamesBySearchBar(action) {
+  return {
+    type: "filteredBySearchBar/set_filteredBySearchBar",
+    payload: action,
+  };
+}

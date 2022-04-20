@@ -6,3 +6,5 @@ export const allGamesByCategoryPc = (reduxState) =>
   reduxState.games.categoryByPc;
 export const allGamesByCategoryBrowser = (reduxState) =>
   reduxState.games.categoryByBrowser;
+export const allGamesBySearchBar = (reduxState) =>
+  reduxState.games.filteredSearch;
