@@ -39,7 +39,7 @@ const Games = () => {
                     />
                   </CardButton>
 
-                  <CardButton title="Click to see a preview">
+                  <CardButton title="Click to see a preview" id={game.id}>
                     <RiComputerLine
                       style={{
                         color: "white",

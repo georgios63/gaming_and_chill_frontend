@@ -1,7 +1,17 @@
+import { useEffect } from "react";
 import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { previewd } from "../../store/preview/actions";
 
-const CardButton = ({ children, title, input, ...props }) => {
+const CardButton = ({ children, title, input, id, ...props }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
+  };
+
+  useEffect(() => {}, []);
+
   return (
     <OverlayTrigger
       placement="bottom"
@@ -11,6 +21,7 @@ const CardButton = ({ children, title, input, ...props }) => {
       <Button
         variant="outline-secondary"
         href={input}
+        onClick={handleClick}
         style={{
           display: "flex",
           alignSelf: "center",

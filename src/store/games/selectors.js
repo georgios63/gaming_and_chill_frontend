@@ -4,3 +4,5 @@ export const allGamesSortedByReleaseDate = (reduxState) =>
   reduxState.games.sortedByReleaseDate;
 export const allGamesByCategoryPc = (reduxState) =>
   reduxState.games.categoryByPc;
+export const allGamesByCategoryBrowser = (reduxState) =>
+  reduxState.games.categoryByBrowser;

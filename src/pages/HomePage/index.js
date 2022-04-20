@@ -14,10 +14,9 @@ const HomePage = () => {
           <Navbar.Brand>Hello from Mini navbar</Navbar.Brand>
         </Navbar>
       </Container>
-      <Preview />
       <div className="home-page-container">
-        {/* <div>Welcome from random details</div> */}
         <div className="game-containers">
+          <Preview />
           <Games />
           <CategoryByReleaseDate />
           <CategoryByBrowser />
