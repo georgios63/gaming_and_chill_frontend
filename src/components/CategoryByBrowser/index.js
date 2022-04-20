@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import {
   gamesLoading,
   allGamesByCategoryBrowser,
@@ -11,13 +11,13 @@ import CardButton from "../CardButton";
 import { fetchGamesByCategoryBrowser } from "../../store/games/actions";
 
 const CategoryByBrowser = () => {
-  const target = useRef(null);
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const gamesByCategoryBrowser = useSelector(allGamesByCategoryBrowser);
 
   useEffect(() => {
     dispatch(fetchGamesByCategoryBrowser);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchGamesByCategoryBrowser]);
 
   return (
@@ -40,7 +40,10 @@ const CategoryByBrowser = () => {
                     />
                   </CardButton>
 
-                  <CardButton title="Click to see a preview">
+                  <CardButton
+                    title="Click to see a preview"
+                    style={{ color: "red" }}
+                  >
                     <RiComputerLine
                       style={{
                         color: "white",

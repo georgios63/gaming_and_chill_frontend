@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import {
   gamesLoading,
   allGamesSortedByReleaseDate,
@@ -12,13 +12,13 @@ import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 
 const CategoryByReleaseDate = () => {
-  const target = useRef(null);
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
 
   useEffect(() => {
     dispatch(fetchGamesSortedByReleaseDate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchGamesSortedByReleaseDate]);
 
   return (

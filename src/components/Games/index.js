@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { fetchGames } from "../../store/games/actions";
 import { allGames, gamesLoading } from "../../store/games/selectors";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,14 +9,13 @@ import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 
 const Games = () => {
-  const target = useRef(null);
-
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const games = useSelector(allGames);
 
   useEffect(() => {
     dispatch(fetchGames);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchGames]);
 
   return (

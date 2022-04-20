@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import {
   gamesLoading,
   allGamesByCategoryPc,
@@ -11,13 +11,13 @@ import CardButton from "../CardButton";
 import { fetchGamesByCategoryPc } from "../../store/games/actions";
 
 const CategoryByPc = () => {
-  const target = useRef(null);
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const gamesByCategoryPc = useSelector(allGamesByCategoryPc);
 
   useEffect(() => {
     dispatch(fetchGamesByCategoryPc);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchGamesByCategoryPc]);
 
   return (
