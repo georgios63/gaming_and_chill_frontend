@@ -17,6 +17,7 @@ const CategoryByBrowser = () => {
   const gamesByCategoryBrowser = useSelector(allGamesByCategoryBrowser);
 
   const handleClick = (id) => {
+    window.scrollTo(0, 0);
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 

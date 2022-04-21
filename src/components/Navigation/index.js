@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
@@ -10,9 +10,25 @@ import "./styles.css";
 import SocialMediaIcons from "../SocialMediaIcons";
 import DropDownMenu from "../DropDownMenu";
 import SearchBar from "../SearchBar";
+import { allGames } from "../../store/games/selectors";
+import { fetchGamesBySearchBar } from "../../store/games/actions";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
+  const dispatch = useDispatch();
+  const games = useSelector(allGames);
+
+  const filterHandler = (event) => {
+    const newFilter = games.filter((value) => {
+      return value.title.toLowerCase().includes(event.toLowerCase());
+    });
+
+    if (event === "") {
+      dispatch(fetchGamesBySearchBar([]));
+    } else {
+      dispatch(fetchGamesBySearchBar(newFilter));
+    }
+  };
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
@@ -23,7 +39,12 @@ export default function Navigation() {
           <Nav className="nav-bar">
             <div className="left-navbar">
               <DropDownMenu />
-              <SearchBar />
+              {}
+              <SearchBar
+                placeholder="Search"
+                type="search"
+                onChange={(event) => filterHandler(event.target.value)}
+              />
             </div>
 
             <div className="tittle">

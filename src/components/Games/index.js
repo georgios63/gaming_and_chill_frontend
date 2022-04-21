@@ -20,6 +20,7 @@ const Games = () => {
   const searchedGames = useSelector(allGamesBySearchBar);
 
   const handleClick = (id) => {
+    window.scrollTo(0, 0);
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 

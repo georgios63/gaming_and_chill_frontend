@@ -18,6 +18,7 @@ const CategoryByReleaseDate = () => {
   const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
 
   const handleClick = (id) => {
+    window.scrollTo(0, 0);
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 

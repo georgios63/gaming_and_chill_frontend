@@ -17,6 +17,7 @@ const CategoryByPc = () => {
   const gamesByCategoryPc = useSelector(allGamesByCategoryPc);
 
   const handleClick = (id) => {
+    window.scrollTo(0, 0);
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 
