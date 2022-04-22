@@ -24,7 +24,7 @@ export default function Navigation() {
     });
 
     if (event === "") {
-      dispatch(fetchGamesBySearchBar([]));
+      dispatch(fetchGamesBySearchBar([])); // You could also just return the whole list of games that will save you a conditional
     } else {
       dispatch(fetchGamesBySearchBar(newFilter));
     }
@@ -39,8 +39,8 @@ export default function Navigation() {
           <Nav className="nav-bar">
             <div className="left-navbar">
               <DropDownMenu />
-              {}
               <SearchBar
+                gameselector={games}
                 placeholder="Search"
                 type="search"
                 onChange={(event) => filterHandler(event.target.value)}

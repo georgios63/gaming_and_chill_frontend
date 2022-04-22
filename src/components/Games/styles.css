@@ -19,7 +19,6 @@
   margin-right: 25px;
   border-radius: 50px;
   border: 0px solid black;
-
   transition: transform 450ms;
 }
 
@@ -30,7 +29,7 @@
   border: 1px solid rgba(185, 180, 180, 0.158);
 }
 
-.card-game > img {
+.link-container > img {
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
 }

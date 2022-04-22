@@ -1,6 +1,16 @@
 import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 
 const CardButton = ({ children, title, input, clickHandler, ...props }) => {
+  const defaultValues = {
+    display: "flex",
+    alignSelf: "center",
+    border: "1px solid rgba(185, 180, 180, 0.158)",
+    borderRadius: "50px",
+    margin: "15px",
+    width: "50px",
+    height: "50px",
+  };
+
   return (
     <OverlayTrigger
       placement="bottom"
@@ -12,13 +22,7 @@ const CardButton = ({ children, title, input, clickHandler, ...props }) => {
         href={input}
         onClick={clickHandler}
         style={{
-          display: "flex",
-          alignSelf: "center",
-          border: "1px solid rgba(185, 180, 180, 0.158)",
-          borderRadius: "50px",
-          margin: "15px",
-          width: "50px",
-          height: "50px",
+          ...defaultValues,
           ...props.style,
         }}
       >

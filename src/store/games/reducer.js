@@ -5,6 +5,7 @@ const initialState = {
   categoryByPc: [],
   categoryByBrowser: [],
   filteredSearch: [],
+  gameById: [],
 };
 
 export default function games(state = initialState, action) {
@@ -46,6 +47,14 @@ export default function games(state = initialState, action) {
         ...state,
         loading: false,
         filteredSearch: action.payload,
+      };
+    }
+
+    case "gameById/set_gameById": {
+      return {
+        ...state,
+        loading: false,
+        gameById: action.payload,
       };
     }
 

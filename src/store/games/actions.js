@@ -56,6 +56,19 @@ export async function fetchGamesByCategoryBrowser(dispatch, getState) {
   }
 }
 
+export const fetchGameById = (id) =>
+  async function (dispatch, getState) {
+    try {
+      const response = await axios.get(`${apiUrl}/games/${id}`);
+      dispatch({
+        type: "gameById/set_gameById",
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
 export function fetchGamesBySearchBar(action) {
   return {
     type: "filteredBySearchBar/set_filteredBySearchBar",

@@ -11,6 +11,7 @@ import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 import { previewd } from "../../store/preview/actions";
+import { Link } from "react-router-dom";
 
 const CategoryByReleaseDate = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,12 @@ const CategoryByReleaseDate = () => {
         {!loading
           ? sortedByReleaseDate.map((game) => (
               <div className="card-game" key={game.id}>
-                <img alt="" src={game.thumbnail} />
+                <Link
+                  className="link-container"
+                  to={{ pathname: `/details/${game.id}` }}
+                >
+                  <img alt="" src={game.thumbnail} />
+                </Link>
                 <div className="icon-container">
                   <CardButton title="Add to library">
                     <IoIosAdd
