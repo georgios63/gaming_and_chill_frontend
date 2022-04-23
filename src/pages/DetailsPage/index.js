@@ -19,16 +19,29 @@ const DetailsPage = () => {
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   }, [dispatch, id]);
   return (
-    <div className="details-container">
-      <div style={{ margin: "10px" }}>
-        <Preview />
+    <div className="details-page">
+      <div className="preview-container">
+        <Preview
+          width="400"
+          height="400"
+          autoPlay={true}
+          loop={true}
+          controlsList={"nodownload"}
+        />
+        {<img src={gameById.thumbnail} alt="img" />}
       </div>
-      {!loading ? (
-        <div>{gameById.description.replace(/<[^>]*>/gim, "")}</div>
-      ) : (
-        // <div dangerouslySetInnerHTML={{ __html: gameById.description }}></div>
-        ""
-      )}
+
+      <div className="details">
+        {!loading && gameById ? (
+          // <div className="">{gameById.description.replace(/<[^>]*>/gim, "")}</div>
+          <div dangerouslySetInnerHTML={{ __html: gameById.description }}></div>
+        ) : (
+          ""()
+        )}
+      </div>
+      <div className="latest-updates">
+        <h3>Latest updates</h3>
+      </div>
     </div>
   );
 };

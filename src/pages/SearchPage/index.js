@@ -16,7 +16,12 @@ const SearchPage = () => {
     <div>
       <div className="search-page-container">
         <div className="game-containers">
-          <Preview />
+          <Preview
+            width="700"
+            autoPlay={true}
+            loop={true}
+            controlsList={"nodownload"}
+          />
           <h3>Search result: Search for a game...</h3>
           <div className="linked-container">
             <p style={{ margin: "20px" }}>Did you mean: </p>

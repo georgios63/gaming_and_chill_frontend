@@ -17,7 +17,12 @@ const HomePage = () => {
       </Container>
       <div className="home-page-container">
         <div className="game-containers">
-          <Preview />
+          <Preview
+            width="700"
+            autoPlay={true}
+            loop={true}
+            controlsList={"nodownload"}
+          />
           <SearchedGames />
           <Games />
           <CategoryByReleaseDate />
