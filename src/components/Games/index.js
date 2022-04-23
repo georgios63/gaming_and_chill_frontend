@@ -39,7 +39,10 @@ const Games = () => {
                   <img alt="" src={game.thumbnail} />
                 </Link>
                 <div className="icon-container">
-                  <CardButton title="Add to library">
+                  <CardButton
+                    title="Add to library"
+                    variant="outline-secondary"
+                  >
                     <IoIosAdd
                       style={{
                         color: "white",
@@ -52,6 +55,7 @@ const Games = () => {
 
                   <CardButton
                     title="Click to see a preview"
+                    variant="outline-secondary"
                     clickHandler={() => handleClick(game.id)}
                   >
                     <RiComputerLine
@@ -66,6 +70,7 @@ const Games = () => {
 
                   <CardButton
                     title="Click to go to the download page"
+                    variant="outline-secondary"
                     input={game.game_url}
                   >
                     <AiOutlineDownload

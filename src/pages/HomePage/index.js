@@ -21,6 +21,7 @@ const HomePage = () => {
             width="700"
             autoPlay={true}
             loop={true}
+            controls={true}
             controlsList={"nodownload"}
           />
           <SearchedGames />

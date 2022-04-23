@@ -34,7 +34,7 @@ export default function Navigation() {
 
             <div className="tittle">
               <Navbar.Brand className="nav-tittle" as={NavLink} to="/">
-                Gaming and chill
+                Gaming And Chill
               </Navbar.Brand>
             </div>
 

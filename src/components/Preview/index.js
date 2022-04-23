@@ -4,7 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { defaultPreview } from "../../store/preview/selectors";
 import { previewd } from "../../store/preview/actions";
 
-const Preview = ({ width, height, autoPlay, loop, controlsList }) => {
+const Preview = ({
+  className,
+  onMouseOver,
+  onMouseLeave,
+  width,
+  height,
+  autoPlay,
+  loop,
+  controls,
+  controlsList,
+  poster,
+}) => {
   const dispatch = useDispatch();
   const prev = useSelector(defaultPreview);
 
@@ -16,13 +27,18 @@ const Preview = ({ width, height, autoPlay, loop, controlsList }) => {
   return (
     <div className="preview-container">
       <video
-        controls
+        className={className}
+        onMouseOver={onMouseOver}
+        onMouseLeave={onMouseLeave}
+        controls={controls}
         width={width}
         height={height}
         key={prev}
         autoPlay={autoPlay}
         loop={loop}
+        poster={poster}
         controlsList={controlsList}
+        muted="muted"
       >
         <source src={prev} type="video/webm" />
         <source src={prev} type="video/mp4" />
