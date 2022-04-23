@@ -24,9 +24,9 @@ const DetailsPage = () => {
         <Preview />
       </div>
       {!loading ? (
-        // <div dangerouslySetInnerHTML={{ __html: gameById.description }}></div>
-        <div>{gameById.description.replace(/<[^>]*>/gm, "")}</div>
+        <div>{gameById.description.replace(/<[^>]*>/gim, "")}</div>
       ) : (
+        // <div dangerouslySetInnerHTML={{ __html: gameById.description }}></div>
         ""
       )}
     </div>

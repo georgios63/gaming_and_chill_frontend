@@ -75,3 +75,10 @@ export function fetchGamesBySearchBar(action) {
     payload: action,
   };
 }
+
+export function fetchGamesByAdvancedFilterSearchBar(action) {
+  return {
+    type: "advancedFilteredSearchBar/set_advancedFilteredSearchBar",
+    payload: action,
+  };
+}

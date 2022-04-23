@@ -5,6 +5,7 @@ const initialState = {
   categoryByPc: [],
   categoryByBrowser: [],
   filteredSearch: [],
+  advancedFilterSearch: [],
   gameById: [],
 };
 
@@ -55,6 +56,14 @@ export default function games(state = initialState, action) {
         ...state,
         loading: false,
         gameById: action.payload,
+      };
+    }
+
+    case "advancedFilteredSearchBar/set_advancedFilteredSearchBar": {
+      return {
+        ...state,
+        loading: false,
+        advancedFilterSearch: action.payload,
       };
     }
 

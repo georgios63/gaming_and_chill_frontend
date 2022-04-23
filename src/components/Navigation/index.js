@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
@@ -11,24 +11,10 @@ import SocialMediaIcons from "../SocialMediaIcons";
 import DropDownMenu from "../DropDownMenu";
 import SearchBar from "../SearchBar";
 import { allGames } from "../../store/games/selectors";
-import { fetchGamesBySearchBar } from "../../store/games/actions";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
-  const dispatch = useDispatch();
   const games = useSelector(allGames);
-
-  const filterHandler = (event) => {
-    const newFilter = games.filter((value) => {
-      return value.title.toLowerCase().includes(event.toLowerCase());
-    });
-
-    if (event === "") {
-      dispatch(fetchGamesBySearchBar([])); // You could also just return the whole list of games that will save you a conditional
-    } else {
-      dispatch(fetchGamesBySearchBar(newFilter));
-    }
-  };
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
@@ -43,7 +29,6 @@ export default function Navigation() {
                 gameselector={games}
                 placeholder="Search"
                 type="search"
-                onChange={(event) => filterHandler(event.target.value)}
               />
             </div>
 

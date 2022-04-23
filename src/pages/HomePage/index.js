@@ -4,6 +4,7 @@ import CategoryByPc from "../../components/CategoryByPc";
 import CategoryByReleaseDate from "../../components/CategoryByReleaseDate";
 import Games from "../../components/Games";
 import Preview from "../../components/Preview";
+import SearchedGames from "../../components/SearchedGames";
 import "./styles.css";
 
 const HomePage = () => {
@@ -17,6 +18,7 @@ const HomePage = () => {
       <div className="home-page-container">
         <div className="game-containers">
           <Preview />
+          <SearchedGames />
           <Games />
           <CategoryByReleaseDate />
           <CategoryByBrowser />
