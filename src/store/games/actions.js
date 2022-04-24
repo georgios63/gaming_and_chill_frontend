@@ -69,16 +69,28 @@ export const fetchGameById = (id) =>
     }
   };
 
-export function fetchGamesBySearchBar(action) {
-  return {
-    type: "filteredBySearchBar/set_filteredBySearchBar",
-    payload: action,
+export const fetchGamesBySearchBar = (action) =>
+  function (dispatch, getState) {
+    try {
+      dispatch({
+        type: "filteredBySearchBar/set_filteredBySearchBar",
+        payload: action,
+      });
+      dispatch(fetchGames);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
-}
 
-export function fetchGamesByAdvancedFilterSearchBar(action) {
-  return {
-    type: "advancedFilteredSearchBar/set_advancedFilteredSearchBar",
-    payload: action,
+export const fetchGamesByAdvancedFilterSearchBar = (action) =>
+  function (dispatch, getState) {
+    try {
+      dispatch({
+        type: "advancedFilteredSearchBar/set_advancedFilteredSearchBar",
+        payload: action,
+      });
+      dispatch(fetchGames);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
-}

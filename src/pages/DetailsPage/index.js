@@ -10,6 +10,7 @@ import { fetchGameById } from "../../store/games/actions";
 import { aGameById, gamesLoading } from "../../store/games/selectors";
 import { previewd } from "../../store/preview/actions";
 import "./styles.css";
+import { Table } from "react-bootstrap";
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const DetailsPage = () => {
         <div className="image-container">
           {!loading && gameById && gameById.screenshots
             ? gameById.screenshots.map((screenshot) => (
-                <a href={screenshot.image} target="__blank">
+                <a key={screenshot.id} href={screenshot.image} target="__blank">
                   <img
                     style={{ width: "90px", height: "80px", margin: "5px" }}
                     src={screenshot.image}
@@ -61,6 +62,7 @@ const DetailsPage = () => {
               ))
             : ""}
         </div>
+
         <div className="button-container">
           <CardButton
             title="Add to library"
@@ -114,36 +116,67 @@ const DetailsPage = () => {
         ) : (
           ""()
         )}
-        <div className="aditional-info">
-          <h3>Aditional Information</h3>
-          <span className="text-container">Genre: {gameById.genre}</span>
-          <br />
-          <span>Platform: {gameById.platform}</span>
-          <br />
-          <span>Publisher: {gameById.publisher}</span>
-          <br />
-          <span>Developer: {gameById.developer}</span>
-          <br />
-          <span>Release date: {gameById.release_date}</span>
-        </div>
+        <Table className="aditional-info" bordered size="sm" variant="dark">
+          <tbody>
+            <tr>
+              <td colSpan={2}>Aditional Information</td>
+            </tr>
+            <tr>
+              <td>Genre</td>
+              <td>{gameById.genre}</td>
+            </tr>
+            <tr>
+              <td>Platform</td>
+              <td>{gameById.platform}</td>
+            </tr>
+            <tr>
+              <td>Publisher</td>
+              <td>{gameById.publisher}</td>
+            </tr>
+            <tr>
+              <td>Developer</td>
+              <td>{gameById.developer}</td>
+            </tr>
+            <tr>
+              <td>Release Date</td>
+              <td>{gameById.release_date}</td>
+            </tr>
+          </tbody>
+        </Table>
 
         {!loading && gameById && gameById.minimum_system_requirements ? (
-          <div className="minimum-requirements">
-            <h3>System Requirements</h3>
-            <span>Os: {gameById.minimum_system_requirements.os}</span>
-            <br />
-            <span>
-              Processor: {gameById.minimum_system_requirements.processor}
-            </span>
-            <br />
-            <span>Memory: {gameById.minimum_system_requirements.memory}</span>
-            <br />
-            <span>
-              Graphics: {gameById.minimum_system_requirements.graphics}
-            </span>
-            <br />
-            <span>Storage: {gameById.minimum_system_requirements.storage}</span>
-          </div>
+          <Table
+            className="minimum-requirements"
+            bordered
+            size="sm"
+            variant="dark"
+          >
+            <tbody>
+              <tr>
+                <td colSpan={2}>System Requirements</td>
+              </tr>
+              <tr>
+                <td>Os</td>
+                <td>{gameById.minimum_system_requirements.os}</td>
+              </tr>
+              <tr>
+                <td>Processor</td>
+                <td>{gameById.minimum_system_requirements.processor}</td>
+              </tr>
+              <tr>
+                <td>Memory</td>
+                <td>{gameById.minimum_system_requirements.memory}</td>
+              </tr>
+              <tr>
+                <td>Graphics</td>
+                <td>{gameById.minimum_system_requirements.graphics}</td>
+              </tr>
+              <tr>
+                <td>Storage</td>
+                <td>{gameById.minimum_system_requirements.storage}</td>
+              </tr>
+            </tbody>
+          </Table>
         ) : (
           ""
         )}

@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 50px;
+  align-items: center;
 }
 
 .preview-video {
   color: white;
-  margin: 30px;
+  max-height: 465px;
   border: 1px solid rgba(185, 180, 180, 0.158);
   box-shadow: 20px 20px 20px black;
   border-radius: 8px;
@@ -15,6 +15,7 @@
 
 .arrow-icon {
   align-self: center;
+  margin: 35px;
 }
 
 .details-container {
@@ -23,8 +24,7 @@
   flex-wrap: wrap;
   text-align: center;
   color: white;
-  margin: 30px;
-  margin-top: 5px;
+  margin-top: 20px;
   border: 1px solid rgba(185, 180, 180, 0.158);
   box-shadow: 20px 20px 20px black;
   border-radius: 8px;
@@ -36,13 +36,13 @@
 }
 
 .aditional-info {
+  max-width: 40%;
   margin: 15px;
-  border: 1px solid white;
 }
 
 .minimum-requirements {
+  max-width: 40%;
   margin: 15px;
-  border: 1px solid white;
 }
 
 .button-container {
