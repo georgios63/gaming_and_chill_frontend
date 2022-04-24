@@ -1,16 +1,20 @@
 .detail-page-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   text-align: center;
   margin: 50px;
-  /* border: 1px solid rgba(185, 180, 180, 0.158);
-  box-shadow: 20px 20px 20px black;
-  border-radius: 8px; */
 }
 
 .preview-video {
   color: white;
   margin: 30px;
+  border: 1px solid rgba(185, 180, 180, 0.158);
+  box-shadow: 20px 20px 20px black;
+  border-radius: 8px;
+}
+
+.arrow-icon {
+  align-self: center;
 }
 
 .details-container {
@@ -21,25 +25,35 @@
   color: white;
   margin: 30px;
   margin-top: 5px;
+  border: 1px solid rgba(185, 180, 180, 0.158);
+  box-shadow: 20px 20px 20px black;
+  border-radius: 8px;
 }
 
 .details {
-  margin: 5px;
-  display: inline-block;
+  margin: 20px;
   max-width: fit-content;
 }
 
 .aditional-info {
-  margin-right: 15px;
+  margin: 15px;
+  border: 1px solid white;
 }
 
 .minimum-requirements {
-  margin-left: 15px;
+  margin: 15px;
+  border: 1px solid white;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
 }
 
 /* .aditional-info > span {
@@ -56,11 +70,13 @@
 }
 
 .aditional-info > h3 {
+  margin: 10px;
   text-shadow: 2px 1px 1px white;
   text-decoration: underline white 1px;
 }
 
 .minimum-requirements > h3 {
+  margin: 10px;
   text-shadow: 2px 1px 1px white;
   text-decoration: underline white 1px;
 }

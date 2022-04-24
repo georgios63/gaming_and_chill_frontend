@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
+import { ImArrowRight } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CardButton from "../../components/CardButton";
@@ -22,12 +23,10 @@ const DetailsPage = () => {
   const playVideo = () => {
     video.play();
     setVideo(!showVideo);
-    console.log(showVideo);
   };
   const pauseVideo = () => {
     video.pause();
     setVideo(!showVideo);
-    console.log(showVideo);
   };
 
   useEffect(() => {
@@ -48,6 +47,20 @@ const DetailsPage = () => {
           loop={true}
           controlsList={"nodownload"}
         />
+
+        <div className="image-container">
+          {!loading && gameById && gameById.screenshots
+            ? gameById.screenshots.map((screenshot) => (
+                <a href={screenshot.image} target="__blank">
+                  <img
+                    style={{ width: "90px", height: "80px", margin: "5px" }}
+                    src={screenshot.image}
+                    alt="img"
+                  />
+                </a>
+              ))
+            : ""}
+        </div>
         <div className="button-container">
           <CardButton
             title="Add to library"
@@ -79,6 +92,16 @@ const DetailsPage = () => {
             />
           </CardButton>
         </div>
+      </div>
+
+      <div className="arrow-icon">
+        <ImArrowRight
+          style={{
+            color: "white",
+            width: "30px",
+            height: "30px",
+          }}
+        />
       </div>
 
       <div className="details-container">

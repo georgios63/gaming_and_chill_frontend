@@ -8,7 +8,7 @@ import CardButton from "../CardButton";
 import { previewd } from "../../store/preview/actions";
 import { Link } from "react-router-dom";
 
-const SearchedGames = ({ ...props }) => {
+const SearchedGames = () => {
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const searchedGames = useSelector(allGamesBySearchBar);

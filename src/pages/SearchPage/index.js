@@ -1,6 +1,8 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchedGames from "../../components/SearchedGames";
+import { fetchGames } from "../../store/games/actions";
 import {
   allGamesByAdvancedSearchBar,
   gamesLoading,
@@ -10,6 +12,11 @@ import "./styles.css";
 const SearchPage = () => {
   const loading = useSelector(gamesLoading);
   const advancedSearchBar = useSelector(allGamesByAdvancedSearchBar);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGames);
+  }, [dispatch]);
 
   return (
     <div>
@@ -18,7 +25,7 @@ const SearchPage = () => {
           <h3>Search result: Search for a game...</h3>
           <div className="linked-container">
             <p style={{ margin: "20px" }}>Did you mean: </p>
-            {!loading
+            {!loading && advancedSearchBar.length > 0
               ? advancedSearchBar.map((game) => (
                   <Link
                     style={{ margin: "10px" }}
@@ -28,7 +35,7 @@ const SearchPage = () => {
                     <span>{game.title}</span>
                   </Link>
                 ))
-              : "loading"}
+              : ""}
           </div>
           <SearchedGames />
         </div>

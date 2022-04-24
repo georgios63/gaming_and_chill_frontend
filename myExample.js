@@ -25,7 +25,6 @@ const SearchBar = ({ placeholder, type, gameselector, ...props }) => {
     }
 
     if (newFilter.length !== 0 && newFilter.length <= 7) {
-      console.log(newFilter);
       dispatch(fetchGamesByAdvancedFilterSearchBar(newFilter));
     }
 
