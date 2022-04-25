@@ -47,7 +47,6 @@ export default function Navigation() {
                   marginRight: "20px",
                 }}
               />
-
               <SocialMediaIcons />
             </div>
           </Nav>
