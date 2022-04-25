@@ -1,24 +1,37 @@
+import { Button } from "react-bootstrap";
 import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { SocialIcon } from "react-social-icons";
 import { selectToken } from "../../store/user/selectors";
+import { useNavigate } from "react-router-dom";
+
 import "./styles.css";
-// import { CgProfile } from "react-icons/cg/index";
 
 const SocialMediaIcons = () => {
   const token = useSelector(selectToken);
+  const navigate = useNavigate();
+
+  const clickHandler = () => {
+    navigate("/userProfile");
+  };
 
   return (
     <div className="social-media-container">
       {token ? (
-        <CgProfile
-          style={{
-            color: "white",
-            width: "30px",
-            height: "30px",
-            margin: "auto",
-          }}
-        />
+        <Button
+          variant="Dark"
+          onClick={clickHandler}
+          style={{ border: "none", borderRadius: "50px" }}
+        >
+          <CgProfile
+            style={{
+              color: "white",
+              width: "30px",
+              height: "30px",
+              margin: "auto",
+            }}
+          />
+        </Button>
       ) : (
         ""
       )}
@@ -52,7 +65,7 @@ const SocialMediaIcons = () => {
         }}
       />
       <SocialIcon
-        style={{ height: 25, width: 25 }}
+        style={{ height: 25, width: 25, margin: 10 }}
         url="https://instagram.com/"
       />
     </div>

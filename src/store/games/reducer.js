@@ -7,6 +7,7 @@ const initialState = {
   filteredSearch: [],
   advancedFilterSearch: [],
   gameById: [],
+  library: [],
 };
 
 export default function games(state = initialState, action) {
@@ -64,6 +65,21 @@ export default function games(state = initialState, action) {
         ...state,
         loading: false,
         advancedFilterSearch: action.payload,
+      };
+    }
+
+    case "putItemOnlibrary/set_putItemOnlibrary": {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
+
+    case "getLibrary/set_getLibrary": {
+      return {
+        ...state,
+        loading: true,
+        library: action.payload,
       };
     }
 

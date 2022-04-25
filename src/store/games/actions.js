@@ -94,3 +94,63 @@ export const fetchGamesByAdvancedFilterSearchBar = (action) =>
       console.log(error.message);
     }
   };
+
+export const addGamesToLibrary = (id) =>
+  async function (dispatch, getState) {
+    try {
+      const state = getState();
+      const token = state.user.token;
+
+      if (token) {
+        await axios.post(
+          `${apiUrl}/library`,
+          { id },
+          {
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        dispatch({
+          type: "putItemOnlibrary/set_putItemOnlibrary",
+        });
+        dispatch(fetchLibrary);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+export const fetchGameIdsFromLibrary = () =>
+  async function (dispatch, getState) {
+    try {
+      const offset = getState().games.library.length;
+
+      const response = await axios.get(
+        `${apiUrl}/library?offset=${offset}&limit=4`
+      );
+
+      response.data.map(async (gameId) => {
+        const response = await axios.get(`${apiUrl}/games/${gameId.gameId}`);
+        dispatch({ type: "getGameIds/set_getGameIds", payload: response.data });
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+export const fetchLibrary = () =>
+  async function (dispatch, getState) {
+    try {
+      const state = getState();
+      const token = state.user.token;
+      const response = await axios.get(`${apiUrl}/library`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      dispatch({ type: "getLibrary/set_getLibrary", payload: response.data });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };

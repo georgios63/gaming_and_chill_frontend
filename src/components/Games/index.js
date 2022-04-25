@@ -8,6 +8,12 @@ import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 import { previewd } from "../../store/preview/actions";
+import {
+  addGamesToLibrary,
+  fetchGameIdsFromLibrary,
+  fetchLibrary,
+} from "../../store/games/actions";
+
 import { Link } from "react-router-dom";
 
 const Games = () => {
@@ -20,8 +26,14 @@ const Games = () => {
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 
+  const addToLibrary = () => {
+    console.log();
+    dispatch(addGamesToLibrary());
+  };
+
   useEffect(() => {
     dispatch(fetchGames);
+    dispatch(fetchLibrary);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchGames]);
 
@@ -42,6 +54,7 @@ const Games = () => {
                   <CardButton
                     title="Add to library"
                     variant="outline-secondary"
+                    clickHandler={() => addToLibrary(game.id)}
                   >
                     <IoIosAdd
                       style={{
