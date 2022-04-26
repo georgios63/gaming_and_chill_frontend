@@ -92,6 +92,13 @@ export default function games(state = initialState, action) {
       };
     }
 
+    case "deleteLibraryItem/set_deleteLibraryItem": {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
+
     case "games/start_loading": {
       return {
         ...state,

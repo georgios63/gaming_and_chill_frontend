@@ -3,29 +3,52 @@
   flex-direction: column;
   color: white;
   align-items: center;
-  margin: 20px;
 }
 
 .user-library {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin: 50px;
+  border: 1px solid rgba(185, 180, 180, 0.158);
+  box-shadow: 5px 10px 30px white;
+  /*box-shadow: 5px 10px 30px white;
+  margin: 20px;
+  border-radius: 8px;
+  max-height: 500px;
+  max-width: 800px;
+  overflow-y: scroll;
+  overflow-x: scroll; */
+}
+
+.user-library::-webkit-scrollbar {
+  width: 10px;
+}
+
+.library-card-container {
+  display: flex;
+  margin-bottom: 20px;
+  width: 50%;
+  min-width: 700px;
+  height: 200px;
+}
+
+.library-card-container > img {
+  width: 350px;
 }
 
 .library-card {
   display: flex;
-  width: 50%;
-  height: 200px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  padding: 20px 20px 0 20px;
+  width: calc(100% - 350px);
+  justify-content: space-between;
 }
 
-/* .library-card > img {
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-.library-card-details {
+.library-btn-container {
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
 }

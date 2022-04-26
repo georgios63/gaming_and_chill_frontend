@@ -157,3 +157,23 @@ export const fetchLibrary = () =>
       console.log(error.message);
     }
   };
+
+export const deleteLibraryItem = (id) =>
+  async function (dispatch, getState) {
+    try {
+      const state = getState();
+      const token = state.user.token;
+
+      await axios.delete(`${apiUrl}/library/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        data: { id },
+      });
+
+      dispatch(fetchGamesInLibrary());
+      dispatch({ type: "deleteLibraryItem/set_deleteLibraryItem" });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };

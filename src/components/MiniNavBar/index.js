@@ -1,5 +1,5 @@
 const MiniNavBar = () => {
-  return <div>Hello from mini navBar</div>;
+  return <div></div>;
 };
 
 export default MiniNavBar;

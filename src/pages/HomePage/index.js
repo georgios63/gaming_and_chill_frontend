@@ -12,7 +12,7 @@ const HomePage = () => {
     <div>
       <Container className="mini-navbar-container">
         <Navbar variant="dark">
-          <Navbar.Brand>Hello from Mini navbar</Navbar.Brand>
+          <Navbar.Brand></Navbar.Brand>
         </Navbar>
       </Container>
       <div className="home-page-container">
