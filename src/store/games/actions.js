@@ -121,8 +121,10 @@ export const addGamesToLibrary = (id) =>
     }
   };
 
-export const fetchGamesInLibrary = (action) =>
-  function (dispatch, getState) {
+export const fetchGamesInLibrary = () =>
+  async function (dispatch, getState) {
+    await dispatch(fetchGames);
+    await dispatch(fetchLibrary());
     const state = getState();
     const games = state.games.games;
     const library = state.games.library;
@@ -134,6 +136,7 @@ export const fetchGamesInLibrary = (action) =>
       });
       return ids;
     };
+
     const libraryIds = createLibraryIds();
     const favorites = games.filter((game) => libraryIds[game.id]);
     dispatch({ type: "gamesInLibrary/set_gamesInLibrary", payload: favorites });

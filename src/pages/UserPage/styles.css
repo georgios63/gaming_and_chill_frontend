@@ -5,3 +5,27 @@
   align-items: center;
   margin: 20px;
 }
+
+.user-library {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.library-card {
+  display: flex;
+  width: 50%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+/* .library-card > img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.library-card-details {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}

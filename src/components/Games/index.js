@@ -1,6 +1,7 @@
 import "./styles.css";
-import React, { useEffect } from "react";
-import { fetchGames, fetchGamesInLibrary } from "../../store/games/actions";
+import { Alert, Button } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { fetchGames } from "../../store/games/actions";
 import { allGames, gamesLoading } from "../../store/games/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDownload } from "react-icons/ai";
@@ -8,11 +9,7 @@ import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 import { previewd } from "../../store/preview/actions";
-import {
-  addGamesToLibrary,
-  fetchGameIdsFromLibrary,
-  fetchLibrary,
-} from "../../store/games/actions";
+import { addGamesToLibrary } from "../../store/games/actions";
 
 import { Link } from "react-router-dom";
 
@@ -20,6 +17,7 @@ const Games = () => {
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const games = useSelector(allGames);
+  const [showAlert, setshowAlert] = useState(false);
 
   const handleClick = (id) => {
     window.scrollTo(0, 0);
@@ -27,19 +25,27 @@ const Games = () => {
   };
 
   const addToLibrary = (id) => {
+    setshowAlert(true);
     dispatch(addGamesToLibrary(id));
-    // dispatch(fetchGamesInLibrary());
-    // dispatch(fetchGameIdsFromLibrary());
   };
 
   useEffect(() => {
     dispatch(fetchGames);
-    dispatch(fetchLibrary());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchGames]);
 
   return (
     <div>
+      {/* <Alert show={showAlert} variant="success" style={{ width: "100%" }}>
+        <Alert.Heading>Success</Alert.Heading>
+        <p>Added on library!</p>
+        <hr />
+        <div className="alert-msg">
+          <Button onClick={() => setshowAlert(false)} variant="outline-success">
+            Close this alert
+          </Button>
+        </div>
+      </Alert> */}
       <h3>All Games</h3>
       <div className="card-games">
         {!loading
@@ -53,11 +59,11 @@ const Games = () => {
                 </Link>
                 <div className="icon-container">
                   <CardButton
-                    title="Add to library"
+                    title="Click to see a preview"
                     variant="outline-secondary"
-                    clickHandler={() => addToLibrary(game.id)}
+                    clickHandler={() => handleClick(game.id)}
                   >
-                    <IoIosAdd
+                    <RiComputerLine
                       style={{
                         color: "white",
                         margin: "2px",
@@ -68,11 +74,11 @@ const Games = () => {
                   </CardButton>
 
                   <CardButton
-                    title="Click to see a preview"
+                    title="Add to library"
                     variant="outline-secondary"
-                    clickHandler={() => handleClick(game.id)}
+                    clickHandler={() => addToLibrary(game.id)}
                   >
-                    <RiComputerLine
+                    <IoIosAdd
                       style={{
                         color: "white",
                         margin: "2px",

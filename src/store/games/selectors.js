@@ -11,4 +11,5 @@ export const allGamesBySearchBar = (reduxState) =>
 export const allGamesByAdvancedSearchBar = (reduxState) =>
   reduxState.games.advancedFilterSearch;
 export const aGameById = (reduxState) => reduxState.games.gameById;
-export const allGamesInLibrary = (reduxState) => reduxState.games.library;
+export const allGameIdsInLibrary = (reduxState) => reduxState.games.library;
+export const libraryGames = (reduxState) => reduxState.games.gamesInLibrary;
