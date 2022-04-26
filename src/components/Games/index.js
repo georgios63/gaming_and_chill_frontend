@@ -1,6 +1,6 @@
 import "./styles.css";
 import React, { useEffect } from "react";
-import { fetchGames } from "../../store/games/actions";
+import { fetchGames, fetchGamesInLibrary } from "../../store/games/actions";
 import { allGames, gamesLoading } from "../../store/games/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDownload } from "react-icons/ai";
@@ -26,14 +26,15 @@ const Games = () => {
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 
-  const addToLibrary = () => {
-    console.log();
-    dispatch(addGamesToLibrary());
+  const addToLibrary = (id) => {
+    dispatch(addGamesToLibrary(id));
+    // dispatch(fetchGamesInLibrary());
+    // dispatch(fetchGameIdsFromLibrary());
   };
 
   useEffect(() => {
     dispatch(fetchGames);
-    dispatch(fetchLibrary);
+    dispatch(fetchLibrary());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchGames]);
 

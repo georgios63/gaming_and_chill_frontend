@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { defaultPreview } from "../../store/preview/selectors";
 import { previewd } from "../../store/preview/actions";
+import { allGames } from "../../store/games/selectors";
 
 const Preview = ({
   className,
@@ -17,7 +18,14 @@ const Preview = ({
   poster,
 }) => {
   const dispatch = useDispatch();
-  const prev = useSelector(defaultPreview);
+  const games = useSelector(allGames);
+  const gameIds = games.map((game) => game.id);
+  const randomGamesIndex = Math.floor(Math.random() * gameIds.length - 1);
+  const randomGameId = gameIds[randomGamesIndex];
+
+  const prev =
+    useSelector(defaultPreview) ||
+    `https://www.mmobomb.com/g/${randomGameId}/videoplayback.webm`;
 
   useEffect(() => {
     dispatch(previewd);

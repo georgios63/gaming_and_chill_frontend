@@ -1,4 +1,5 @@
 import { Container, Navbar } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import CategoryByBrowser from "../../components/CategoryByBrowser";
 import CategoryByPc from "../../components/CategoryByPc";
 import CategoryByReleaseDate from "../../components/CategoryByReleaseDate";
@@ -18,7 +19,7 @@ const HomePage = () => {
       <div className="home-page-container">
         <div className="game-containers">
           <Preview
-            width="700"
+            height="500"
             autoPlay={true}
             loop={true}
             controls={true}

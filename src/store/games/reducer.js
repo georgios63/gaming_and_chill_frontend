@@ -8,6 +8,7 @@ const initialState = {
   advancedFilterSearch: [],
   gameById: [],
   library: [],
+  gamesInLibrary: [],
 };
 
 export default function games(state = initialState, action) {
@@ -78,8 +79,16 @@ export default function games(state = initialState, action) {
     case "getLibrary/set_getLibrary": {
       return {
         ...state,
-        loading: true,
+        loading: false,
         library: action.payload,
+      };
+    }
+
+    case "gamesInLibrary/set_gamesInLibrary": {
+      return {
+        ...state,
+        loading: false,
+        gamesInLibrary: action.payload,
       };
     }
 

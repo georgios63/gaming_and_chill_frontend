@@ -114,29 +114,29 @@ export const addGamesToLibrary = (id) =>
         dispatch({
           type: "putItemOnlibrary/set_putItemOnlibrary",
         });
-        dispatch(fetchLibrary);
       }
+      dispatch(fetchLibrary());
     } catch (error) {
       console.log(error.message);
     }
   };
 
-export const fetchGameIdsFromLibrary = () =>
-  async function (dispatch, getState) {
-    try {
-      const offset = getState().games.library.length;
+export const fetchGamesInLibrary = (action) =>
+  function (dispatch, getState) {
+    const state = getState();
+    const games = state.games.games;
+    const library = state.games.library;
 
-      const response = await axios.get(
-        `${apiUrl}/library?offset=${offset}&limit=4`
-      );
-
-      response.data.map(async (gameId) => {
-        const response = await axios.get(`${apiUrl}/games/${gameId.gameId}`);
-        dispatch({ type: "getGameIds/set_getGameIds", payload: response.data });
+    const createLibraryIds = () => {
+      const ids = {};
+      library.forEach((game) => {
+        ids[game.gameId] = true;
       });
-    } catch (error) {
-      console.log(error.message);
-    }
+      return ids;
+    };
+    const libraryIds = createLibraryIds();
+    const favorites = games.filter((game) => libraryIds[game.id]);
+    dispatch({ type: "gamesInLibrary/set_gamesInLibrary", payload: favorites });
   };
 
 export const fetchLibrary = () =>
