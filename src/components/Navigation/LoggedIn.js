@@ -10,10 +10,14 @@ export default function LoggedIn() {
   const user = useSelector(selectUser);
   return (
     <>
-      <Nav.Item style={{ padding: ".5rem 1rem", color: "white" }}>
-        {user.email}
-      </Nav.Item>
-      <Button variant="outline-secondary" onClick={() => dispatch(logOut())}>
+      <Nav.Item style={{ color: "white" }}>{user.name}</Nav.Item>
+      <Button
+        style={{
+          marginLeft: "20px",
+        }}
+        variant="outline-secondary"
+        onClick={() => dispatch(logOut())}
+      >
         Logout
       </Button>
     </>
