@@ -1,0 +1,19 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+  background-color: rgba(108, 106, 106, 0.056);
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 10px;
+  text-align: center;
+  max-height: 1583;
+}
+
+.col-sm {
+  text-align: center;
+}
