@@ -25,6 +25,10 @@ const UserPage = () => {
   }, [dispatch]);
   return (
     <div className="user-page-container">
+      <h1 style={{ marginBottom: "20px", textShadow: "1px 1px 5px white" }}>
+        Library
+      </h1>
+
       <div className="user-library">
         {!loading
           ? library.map((game) => (
@@ -78,8 +82,13 @@ const UserPage = () => {
                 </div>
               </div>
             ))
-          : "loading"}
+          : ""}
       </div>
+      {library.length === 0 ? (
+        <h3>Your library is empty! Please insert some games to have fun!!</h3>
+      ) : (
+        ""
+      )}
       <div className="news-container">
         <News />
       </div>
