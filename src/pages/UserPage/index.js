@@ -31,6 +31,7 @@ const UserPage = () => {
           ? library.map((game) => (
               <div key={game.id} className="library-card-container">
                 <img alt="" src={game.thumbnail} />
+
                 <div className="library-card">
                   <div>
                     <h3>{game.title}</h3>

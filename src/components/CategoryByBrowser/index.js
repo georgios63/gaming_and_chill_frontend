@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   gamesLoading,
   allGamesByCategoryBrowser,
@@ -8,11 +8,15 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
 import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
-import { fetchGamesByCategoryBrowser } from "../../store/games/actions";
+import {
+  addGamesToLibrary,
+  fetchGamesByCategoryBrowser,
+} from "../../store/games/actions";
 import { previewd } from "../../store/preview/actions";
 import { Link } from "react-router-dom";
 
 const CategoryByBrowser = () => {
+  const [showAlert, setshowAlert] = useState(false);
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const gamesByCategoryBrowser = useSelector(allGamesByCategoryBrowser);
@@ -20,6 +24,11 @@ const CategoryByBrowser = () => {
   const handleClick = (id) => {
     window.scrollTo(0, 0);
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
+  };
+
+  const addToLibrary = (id) => {
+    setshowAlert(true);
+    dispatch(addGamesToLibrary(id));
   };
 
   useEffect(() => {
@@ -44,6 +53,7 @@ const CategoryByBrowser = () => {
                   <CardButton
                     title="Add to library"
                     variant="outline-secondary"
+                    clickHandler={() => addToLibrary(game.id)}
                   >
                     <IoIosAdd
                       style={{

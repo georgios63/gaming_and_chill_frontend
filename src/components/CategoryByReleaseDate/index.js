@@ -1,10 +1,13 @@
 import "./styles.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   gamesLoading,
   allGamesSortedByReleaseDate,
 } from "../../store/games/selectors";
-import { fetchGamesSortedByReleaseDate } from "../../store/games/actions";
+import {
+  addGamesToLibrary,
+  fetchGamesSortedByReleaseDate,
+} from "../../store/games/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineDownload } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
@@ -15,12 +18,19 @@ import { Link } from "react-router-dom";
 
 const CategoryByReleaseDate = () => {
   const dispatch = useDispatch();
+  const [showAlert, setshowAlert] = useState(false);
+
   const loading = useSelector(gamesLoading);
   const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
 
   const handleClick = (id) => {
     window.scrollTo(0, 0);
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
+  };
+
+  const addToLibrary = (id) => {
+    setshowAlert(true);
+    dispatch(addGamesToLibrary(id));
   };
 
   useEffect(() => {
@@ -45,6 +55,7 @@ const CategoryByReleaseDate = () => {
                   <CardButton
                     title="Add to library"
                     variant="outline-secondary"
+                    clickHandler={() => addToLibrary(game.id)}
                   >
                     <IoIosAdd
                       style={{
