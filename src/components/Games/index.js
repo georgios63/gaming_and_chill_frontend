@@ -1,13 +1,5 @@
 import "./styles.css";
-import {
-  Alert,
-  Button,
-  Col,
-  Row,
-  Toast,
-  ToastContainer,
-} from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { fetchGames } from "../../store/games/actions";
 import {
   allGameIdsInLibrary,
@@ -22,7 +14,7 @@ import CardButton from "../CardButton";
 import { previewd } from "../../store/preview/actions";
 import { addGamesToLibrary } from "../../store/games/actions";
 import { Link } from "react-router-dom";
-import { successAlert } from "../../store/alert/actions";
+import { successAlert, warningAlert } from "../../store/alert/actions";
 
 const Games = () => {
   const dispatch = useDispatch();
@@ -36,8 +28,6 @@ const Games = () => {
   };
 
   const addToLibrary = (id) => {
-    // libraryItems.map(())
-    // console.log(libraryItems);
     const result = libraryItems.every((game) => {
       if (game.gameId !== id) {
         return true;
@@ -46,9 +36,18 @@ const Games = () => {
     });
 
     if (result) {
+      window.scrollTo(0, 0);
       dispatch(successAlert);
       dispatch(addGamesToLibrary(id));
+      setTimeout(() => {
+        dispatch(successAlert);
+      }, "3000");
     } else {
+      window.scrollTo(0, 0);
+      dispatch(warningAlert);
+      setTimeout(() => {
+        dispatch(warningAlert);
+      }, "3000");
     }
   };
 

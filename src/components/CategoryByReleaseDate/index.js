@@ -1,8 +1,9 @@
 import "./styles.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   gamesLoading,
   allGamesSortedByReleaseDate,
+  allGameIdsInLibrary,
 } from "../../store/games/selectors";
 import {
   addGamesToLibrary,
@@ -15,13 +16,14 @@ import { RiComputerLine } from "react-icons/ri";
 import CardButton from "../CardButton";
 import { previewd } from "../../store/preview/actions";
 import { Link } from "react-router-dom";
+import { successAlert, warningAlert } from "../../store/alert/actions";
 
 const CategoryByReleaseDate = () => {
   const dispatch = useDispatch();
-  const [showAlert, setshowAlert] = useState(false);
 
   const loading = useSelector(gamesLoading);
   const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
+  const libraryItems = useSelector(allGameIdsInLibrary);
 
   const handleClick = (id) => {
     window.scrollTo(0, 0);
@@ -29,8 +31,27 @@ const CategoryByReleaseDate = () => {
   };
 
   const addToLibrary = (id) => {
-    setshowAlert(true);
-    dispatch(addGamesToLibrary(id));
+    const result = libraryItems.every((game) => {
+      if (game.gameId !== id) {
+        return true;
+      }
+      return false;
+    });
+
+    if (result) {
+      window.scrollTo(0, 0);
+      dispatch(successAlert);
+      dispatch(addGamesToLibrary(id));
+      setTimeout(() => {
+        dispatch(successAlert);
+      }, "3000");
+    } else {
+      window.scrollTo(0, 0);
+      dispatch(warningAlert);
+      setTimeout(() => {
+        dispatch(warningAlert);
+      }, "3000");
+    }
   };
 
   useEffect(() => {

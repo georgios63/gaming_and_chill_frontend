@@ -1,6 +1,7 @@
 const initialState = {
   loading: false,
-  alertMsg: false,
+  success: false,
+  warning: false,
 };
 
 export default function alert(state = initialState, action) {
@@ -8,7 +9,16 @@ export default function alert(state = initialState, action) {
     case "alertSuccess/set_alertSuccess": {
       return {
         ...state,
-        alertMsg: !state.alertMsg,
+        loading: false,
+        success: action.payload,
+      };
+    }
+
+    case "alertWarning/set_alertWarning": {
+      return {
+        ...state,
+        loading: false,
+        warning: action.payload,
       };
     }
 

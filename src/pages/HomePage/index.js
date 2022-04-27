@@ -1,19 +1,18 @@
 import { Alert } from "react-bootstrap";
 import { Container, Navbar } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import CategoryByBrowser from "../../components/CategoryByBrowser";
 import CategoryByPc from "../../components/CategoryByPc";
 import CategoryByReleaseDate from "../../components/CategoryByReleaseDate";
 import Games from "../../components/Games";
 import Preview from "../../components/Preview";
 import SearchedGames from "../../components/SearchedGames";
-import { successAlert } from "../../store/alert/actions";
-import { successfulAlert } from "../../store/alert/selectors";
+import { successfullAlert, warningAlert } from "../../store/alert/selectors";
 import "./styles.css";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const sucess = useSelector(successfulAlert);
+  const success = useSelector(successfullAlert);
+  const warning = useSelector(warningAlert);
 
   return (
     <div>
@@ -31,14 +30,21 @@ const HomePage = () => {
               justifyContent: "center",
             }}
           >
-            {sucess ? (
+            {success ? (
               <Alert
-                onClose={() => dispatch(successAlert)}
                 variant="success"
                 style={{ width: "50%", alignSelf: "center" }}
               >
                 <Alert.Heading>Success!</Alert.Heading>
                 <p>You succesfuly added a game in your library!</p>
+              </Alert>
+            ) : warning ? (
+              <Alert
+                variant="danger"
+                style={{ width: "50%", alignSelf: "center" }}
+              >
+                <Alert.Heading>Warning!</Alert.Heading>
+                <p> Oh snap!Game is already in your library!</p>
               </Alert>
             ) : (
               ""

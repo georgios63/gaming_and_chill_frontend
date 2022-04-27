@@ -4,7 +4,6 @@ import { GiClick } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import CardButton from "../../components/CardButton";
 import News from "../../components/News";
-import Preview from "../../components/Preview";
 import {
   deleteLibraryItem,
   fetchGamesInLibrary,
