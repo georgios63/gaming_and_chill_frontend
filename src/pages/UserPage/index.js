@@ -89,9 +89,7 @@ const UserPage = () => {
       ) : (
         ""
       )}
-      <div className="news-container">
-        <News />
-      </div>
+      <News />
     </div>
   );
 };
