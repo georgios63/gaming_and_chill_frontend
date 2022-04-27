@@ -1,0 +1,20 @@
+.news-data-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  max-height: 1000px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.news-data-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.news-details-container {
+  display: flex;
+  justify-content: center;
+}
+
+.news-container {
+}
