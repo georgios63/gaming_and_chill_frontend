@@ -33,12 +33,7 @@ export default function Navigation() {
             </div>
 
             <div className="tittle">
-              <Navbar.Brand
-                style={{ marginLeft: "190px" }}
-                className="nav-tittle"
-                as={NavLink}
-                to="/"
-              >
+              <Navbar.Brand className="nav-tittle" as={NavLink} to="/">
                 Gaming And Chill
               </Navbar.Brand>
             </div>
