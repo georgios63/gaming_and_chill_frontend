@@ -6,7 +6,6 @@ const Footer = () => {
     <div className="footer-page-container">
       <div className="footer-container">
         <div className="row">
-          {/* {column1} */}
           <div className="col">
             <h4>Gaming and Chill</h4>
             <ul className="list-unstyled">
@@ -15,7 +14,6 @@ const Footer = () => {
               <li>588 Mountain Behind Rocks</li>
             </ul>
           </div>
-          {/* {column2} */}
           <div className="col">
             <h4>ABOUT THE PROJECT</h4>
             <ul className="list-unstyled">
@@ -26,7 +24,6 @@ const Footer = () => {
               <li>Help and support</li>
             </ul>
           </div>
-          {/* {column3} */}
           <div className="col">
             <h4>INFORMATION</h4>
             <ul className="list-unstyled">
