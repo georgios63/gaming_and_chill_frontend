@@ -33,7 +33,7 @@ export default function SignUp() {
   }
 
   return (
-    <Container>
+    <Container style={{ minHeight: "100vh" }}>
       <Form
         style={{ color: "white" }}
         as={Col}
