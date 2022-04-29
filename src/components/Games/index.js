@@ -23,7 +23,7 @@ const Games = () => {
   const libraryItems = useSelector(allGameIdsInLibrary);
 
   const handleClick = (id) => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 
@@ -36,7 +36,7 @@ const Games = () => {
     });
 
     if (result) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       dispatch(successAlert);
       dispatch(addGamesToLibrary(id));
       setTimeout(() => {

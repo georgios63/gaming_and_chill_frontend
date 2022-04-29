@@ -26,7 +26,7 @@ const CategoryByReleaseDate = () => {
   const libraryItems = useSelector(allGameIdsInLibrary);
 
   const handleClick = (id) => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
     dispatch(previewd(`https://www.mmobomb.com/g/${id}/videoplayback.webm`));
   };
 
@@ -39,14 +39,14 @@ const CategoryByReleaseDate = () => {
     });
 
     if (result) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       dispatch(successAlert);
       dispatch(addGamesToLibrary(id));
       setTimeout(() => {
         dispatch(successAlert);
       }, "3000");
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       dispatch(warningAlert);
       setTimeout(() => {
         dispatch(warningAlert);
