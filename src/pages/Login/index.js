@@ -31,7 +31,7 @@ export default function SignUp() {
   }
 
   return (
-    <Container>
+    <Container style={{ minHeight: "100vh" }}>
       <Form
         as={Col}
         md={{ span: 6, offset: 3 }}
