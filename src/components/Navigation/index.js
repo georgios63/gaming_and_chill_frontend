@@ -24,7 +24,7 @@ export default function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav-bar">
             <div className="left-navbar">
-              <DropDownMenu />
+              {/* <DropDownMenu /> */}
               <SearchBar
                 gameselector={games}
                 placeholder="Search"
@@ -33,7 +33,14 @@ export default function Navigation() {
             </div>
 
             <div className="tittle">
-              <Navbar.Brand className="nav-tittle" as={NavLink} to="/">
+              <Navbar.Brand
+                style={{
+                  marginLeft: "240px",
+                }}
+                className="nav-tittle"
+                as={NavLink}
+                to="/"
+              >
                 Gaming And Chill
               </Navbar.Brand>
             </div>
