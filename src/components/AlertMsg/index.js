@@ -2,10 +2,13 @@ import "./styles.css";
 import { successfullAlert, warningAlert } from "../../store/alert/selectors";
 import { useSelector } from "react-redux";
 import { Alert } from "react-bootstrap";
+import { selectToken } from "../../store/user/selectors";
 
 const AlertMsg = () => {
   const success = useSelector(successfullAlert);
   const warning = useSelector(warningAlert);
+  const token = useSelector(selectToken);
+
   return (
     <div
       className="alert-box"
@@ -14,7 +17,7 @@ const AlertMsg = () => {
         justifyContent: "center",
       }}
     >
-      {success ? (
+      {success && token ? (
         <Alert
           variant="success"
           style={{
@@ -38,7 +41,7 @@ const AlertMsg = () => {
           }}
         >
           <Alert.Heading>Warning!</Alert.Heading>
-          <p> Oh snap!Game is already in your library!</p>
+          <p> Oh snap!Something went wrong!</p>
         </Alert>
       ) : (
         ""

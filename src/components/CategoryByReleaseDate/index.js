@@ -17,10 +17,11 @@ import CardButton from "../CardButton";
 import { previewd } from "../../store/preview/actions";
 import { Link } from "react-router-dom";
 import { successAlert, warningAlert } from "../../store/alert/actions";
+import { selectToken } from "../../store/user/selectors";
 
 const CategoryByReleaseDate = () => {
   const dispatch = useDispatch();
-
+  const token = useSelector(selectToken);
   const loading = useSelector(gamesLoading);
   const sortedByReleaseDate = useSelector(allGamesSortedByReleaseDate);
   const libraryItems = useSelector(allGameIdsInLibrary);
@@ -38,7 +39,7 @@ const CategoryByReleaseDate = () => {
       return false;
     });
 
-    if (result) {
+    if (result && token) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       dispatch(successAlert);
       dispatch(addGamesToLibrary(id));

@@ -15,9 +15,11 @@ import { previewd } from "../../store/preview/actions";
 import { addGamesToLibrary } from "../../store/games/actions";
 import { Link } from "react-router-dom";
 import { successAlert, warningAlert } from "../../store/alert/actions";
+import { selectToken } from "../../store/user/selectors";
 
 const Games = () => {
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
   const loading = useSelector(gamesLoading);
   const games = useSelector(allGames);
   const libraryItems = useSelector(allGameIdsInLibrary);
@@ -35,7 +37,7 @@ const Games = () => {
       return false;
     });
 
-    if (result) {
+    if (result && token) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       dispatch(successAlert);
       dispatch(addGamesToLibrary(id));
