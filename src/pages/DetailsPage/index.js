@@ -16,9 +16,11 @@ import { previewd } from "../../store/preview/actions";
 import "./styles.css";
 import { Table } from "react-bootstrap";
 import { successAlert, warningAlert } from "../../store/alert/actions";
+import { selectToken } from "../../store/user/selectors";
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
   const loading = useSelector(gamesLoading);
   const gameById = useSelector(aGameById);
   const libraryItems = useSelector(allGameIdsInLibrary);
@@ -44,7 +46,7 @@ const DetailsPage = () => {
       return false;
     });
 
-    if (result) {
+    if (result && token) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       dispatch(successAlert);
       dispatch(addGamesToLibrary(id));
