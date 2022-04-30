@@ -19,12 +19,12 @@
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 }
 
-/* .card-games::-webkit-scrollbar-thumb {
+.card-games::-webkit-scrollbar-thumb {
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
   background-color: rgba(0, 0, 0, 0);
   outline: 1px solid rgba(185, 180, 180, 0.158);
-} */
+}
 
 .card-game {
   margin-right: 25px;

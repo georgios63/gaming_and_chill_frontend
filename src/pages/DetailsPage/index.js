@@ -6,16 +6,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CardButton from "../../components/CardButton";
 import Preview from "../../components/Preview";
-import { fetchGameById } from "../../store/games/actions";
-import { aGameById, gamesLoading } from "../../store/games/selectors";
+import { addGamesToLibrary, fetchGameById } from "../../store/games/actions";
+import {
+  aGameById,
+  allGameIdsInLibrary,
+  gamesLoading,
+} from "../../store/games/selectors";
 import { previewd } from "../../store/preview/actions";
 import "./styles.css";
 import { Table } from "react-bootstrap";
+import { successAlert, warningAlert } from "../../store/alert/actions";
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
   const loading = useSelector(gamesLoading);
   const gameById = useSelector(aGameById);
+  const libraryItems = useSelector(allGameIdsInLibrary);
   const [showVideo, setVideo] = useState(false);
 
   const { id } = useParams();
@@ -28,6 +34,30 @@ const DetailsPage = () => {
   const pauseVideo = () => {
     video.pause();
     setVideo(!showVideo);
+  };
+
+  const addToLibrary = (id) => {
+    const result = libraryItems.every((game) => {
+      if (game.gameId !== id) {
+        return true;
+      }
+      return false;
+    });
+
+    if (result) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      dispatch(successAlert);
+      dispatch(addGamesToLibrary(id));
+      setTimeout(() => {
+        dispatch(successAlert);
+      }, "3000");
+    } else {
+      window.scrollTo(0, 0);
+      dispatch(warningAlert);
+      setTimeout(() => {
+        dispatch(warningAlert);
+      }, "3000");
+    }
   };
 
   useEffect(() => {
@@ -67,6 +97,7 @@ const DetailsPage = () => {
           <CardButton
             title="Add to library"
             variant="outline-secondary"
+            clickHandler={() => addToLibrary(gameById.id)}
             style={{ borderRadius: "" }}
           >
             <IoIosAdd

@@ -15,6 +15,7 @@ import DetailsPage from "./pages/DetailsPage";
 import SearchPage from "./pages/SearchPage";
 import UserPage from "./pages/UserPage";
 import Footer from "./components/Footer";
+import AlertMsg from "./components/AlertMsg";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       <Navigation />
       <MessageBox />
+      <AlertMsg />
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route exact path="/" element={<HomePage />} />
