@@ -59,6 +59,7 @@ const Games = () => {
   return (
     <div>
       <h3>All Games</h3>
+
       <div className="card-games">
         {!loading
           ? games.map((game) => (

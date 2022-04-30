@@ -1,8 +1,3 @@
-/* .category-games {
-  display: flex;
-  justify-content: center;
-} */
-
 .card-games {
   display: flex;
   margin: 10px;
@@ -13,17 +8,12 @@
 
 .card-games::-webkit-scrollbar {
   width: 10px;
-}
-
-.card-games::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  height: 5px;
 }
 
 .card-games::-webkit-scrollbar-thumb {
-  border-top-right-radius: 50px;
-  border-top-left-radius: 50px;
-  background-color: rgba(0, 0, 0, 0);
-  outline: 1px solid rgba(185, 180, 180, 0.158);
+  width: 100px;
+  background-color: rgba(185, 180, 180, 0.158);
 }
 
 .card-game {

@@ -1,5 +1,4 @@
 import { Container, Navbar } from "react-bootstrap";
-import AlertMsg from "../../components/AlertMsg";
 import CategoryByBrowser from "../../components/CategoryByBrowser";
 import CategoryByPc from "../../components/CategoryByPc";
 import CategoryByReleaseDate from "../../components/CategoryByReleaseDate";
