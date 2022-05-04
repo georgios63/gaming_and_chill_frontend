@@ -2,3 +2,10 @@
   background-color: #080b0c;
   min-height: 100vh;
 }
+
+@media only screen and (max-width: 1024px) {
+  .App {
+    min-width: 150vh;
+    min-height: 288vh;
+  }
+}

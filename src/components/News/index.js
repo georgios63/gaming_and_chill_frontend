@@ -29,6 +29,7 @@ const News = () => {
         {!loading
           ? news.map((news) => (
               <div
+                key={news.id}
                 style={{
                   border: "1px solid rgba(185, 180, 180, 0.158)",
                   margin: "5px",
