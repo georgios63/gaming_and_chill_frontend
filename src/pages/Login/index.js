@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
+import "./styles.css";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ export default function SignUp() {
   }
 
   return (
-    <Container style={{ minHeight: "100vh" }}>
+    <Container className="login-container" style={{ minHeight: "100vh" }}>
       <Form
         as={Col}
         md={{ span: 6, offset: 3 }}
