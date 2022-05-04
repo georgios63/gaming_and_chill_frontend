@@ -8,4 +8,7 @@
     min-width: 150vh;
     min-height: 288vh;
   }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
