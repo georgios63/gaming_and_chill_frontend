@@ -17,10 +17,10 @@
   height: 100%;
   border-radius: 8px;
 }
-
+/* 
 @media only screen and (max-width: 1024px) {
   .home-page-container {
     min-width: 319vw;
     min-height: 300vh;
   }
-}
+} */
