@@ -74,9 +74,11 @@
   text-decoration: underline white 1px;
 }
 
-/* @media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .detail-page-container {
     min-width: 319vw;
     min-height: 300vh;
+    min-height: 305vh;
+    max-height: 305vh;
   }
-} */
+}
