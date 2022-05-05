@@ -6,7 +6,7 @@
 @media only screen and (max-width: 1024px) {
   .App {
     min-width: 319vw;
-    /* min-height: 305vh; */
+    min-height: 305vh;
     max-width: 319vw;
   }
   ::-webkit-scrollbar {
