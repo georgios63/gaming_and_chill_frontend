@@ -78,7 +78,5 @@
   .detail-page-container {
     min-width: 319vw;
     min-height: 300vh;
-    min-height: 305vh;
-    max-height: 305vh;
   }
 }

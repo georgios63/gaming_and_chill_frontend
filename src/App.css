@@ -7,8 +7,6 @@
   .App {
     min-width: 319vw;
     min-height: 305vh;
-    /* max-height: 305vh; */
-    /* max-width: 319vw; */
   }
   ::-webkit-scrollbar {
     display: none;
