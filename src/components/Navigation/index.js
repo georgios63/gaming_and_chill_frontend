@@ -20,7 +20,12 @@ export default function Navigation() {
 
   return (
     <>
-      <Navbar className="nav-bar-container" bg="black" variant="dark">
+      <Navbar
+        fixed="top"
+        className="nav-bar-container"
+        bg="black"
+        variant="dark"
+      >
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav-bar">
             <div className="left-navbar">
