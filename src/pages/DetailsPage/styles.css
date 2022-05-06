@@ -78,5 +78,38 @@
   .detail-page-container {
     min-width: 319vw;
     min-height: 300vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .preview-video {
+    margin: 300px;
+  }
+
+  .preview-container {
+    width: 200vw;
+  }
+
+  .preview-container > video {
+    width: inherit;
+  }
+
+  .image-container {
+    display: none;
+  }
+
+  .button-container {
+    width: inherit;
+  }
+
+  .details-container {
+    width: inherit;
+    margin: 0;
+  }
+
+  .arrow-icon {
+    display: none;
   }
 }
