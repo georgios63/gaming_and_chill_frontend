@@ -86,14 +86,11 @@
 
   .preview-video {
     margin: 300px;
-  }
-
-  .preview-container {
-    width: 200vw;
+    /* width: 200vw; */
   }
 
   .preview-container > video {
-    width: inherit;
+    width: 200vw;
   }
 
   .image-container {
