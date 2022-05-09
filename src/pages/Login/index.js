@@ -32,7 +32,10 @@ export default function SignUp() {
   }
 
   return (
-    <Container className="login-container">
+    <Container
+      className="login-container"
+      style={{ minHeight: "100vh", marginTop: "400px" }}
+    >
       <Form
         as={Col}
         md={{ span: 6, offset: 3 }}
